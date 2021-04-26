@@ -1,0 +1,33 @@
+﻿@using MVC_OnlineCommericalAutomation.Models.Sınıflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Cari ID</th>
+        <th>Cari AD</th>
+        <th>Cari Soyad</th>
+        <th>Cari Şehir</th>
+        <th>Cari Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+   @foreach (var x in Model)
+   {
+       <tr>
+           <td>@x.Cariid</td>
+           <td>@x.CariAd</td>
+           <td>@x.CariSoyad</td>
+           <td>@x.CariSehir</td>
+           <td>@x.CariMail</td>
+           <td><a href="/Cari/CariSil/@x.Cariid" class="btn btn-danger">Sil</a> </td>
+           <td><a href="/Cari/CariGetir/@x.Cariid" class="btn btn-success">Güncelle</a> </td>
+           <td><a href="/Cari/MusteriSatıs/@x.Cariid" class="btn btn-dark" style="background-color:lightcoral">Satış Geçmişi</a> </td>
+       </tr>
+   }
+</table>
+<a href="/Cari/YeniCari" class="btn btn-info">Yeni Cari Ekle</a>
