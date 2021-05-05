@@ -89,5 +89,10 @@ namespace MVC_OnlineCommericalAutomation.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult SatisDetay(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.Satisid == id).ToList();
+            return View(degerler);
+        }
     }
 }
